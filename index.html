@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Dyslexia</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+    <script>
+
+    //  var gameInstance = UnityLoader.instantiate("gameContainer", "Build/WEBGL 15-20.json", {onProgress: UnityProgress});
+      $(document).ready(function() {
+          $(document).keydown(function(ev){
+             alert(ev.keyCode);
+             if (ev.keyCode == 179) gameInstance.SendMessage('Prosody', 'ExecutePlayPause');
+             if (ev.keyCode == 177) gameInstance.SendMessage('Prosody', 'ExecuteBack');
+             if (ev.keyCode == 176) gameInstance.SendMessage('Prosody', 'ExecuteForward');//alert('Next Track');
+             if (ev.keyCode == 175) gameInstance.SendMessage('Prosody', 'ExecuteUp');
+             if (ev.keyCode == 174) gameInstance.SendMessage('Prosody', 'ExecuteDown');
+            // if (ev.code === 'VolumeMute') alert('Volume Mute');
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">Dyslexia</div>
+      </div>
+    </div>
+  </body>
+</html>
